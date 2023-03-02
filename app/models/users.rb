@@ -1,4 +1,4 @@
-class User < ActiveRecord::Basecreate_table 
+class User < ActiveRecord::Base
     has_many :pets
   end
 

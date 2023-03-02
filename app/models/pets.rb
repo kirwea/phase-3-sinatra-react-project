@@ -1,4 +1,4 @@
-class Pet < ActiveRecord::Basecreate_table 
+class Pet < ActiveRecord::Base
     belongs_to :user
 
   end
