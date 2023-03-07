@@ -7,6 +7,16 @@ class ApplicationController < Sinatra::Base
       pet.to_json
     end
 
+    post "/login" do
+      user=User.find_by(
+        email: params[:email],
+        password: params[:password]
+      )
+      user.to_json
+    end
+
+  
+
     get "/users" do
       users = User.all
       users.to_json
@@ -15,10 +25,7 @@ class ApplicationController < Sinatra::Base
     post "/new_pet" do
       new_pet = Pet.create(
         name: params[:name],
-        description: params[:description],
         breed: params[:breed],
-        status: params[:status],
-        age: params[:age],
         image: params[:image]
         
       )
