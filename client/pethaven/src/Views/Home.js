@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Register from "../components/RegisterUsers";
-import Login from "../components/LoginUser";
+import Register from "../componets/RegisterUsers";
+import Login from "../componets/LoginUser";
 
 function Home() {
   const [displayRegister,displayLogin] = useState(true)
@@ -9,7 +9,7 @@ function Home() {
   }
 if(displayRegister === true){
   return (<>
-    <h1>Pethaven</h1>
+    <h1>Petfinder</h1>
     <Register changeForm={changeForm}/>
     <p onClick={changeForm} className="lUser">Already registered? 
     <div className="hover">
@@ -20,8 +20,9 @@ if(displayRegister === true){
     </>);
 }else{
   return (<>
-    <h1 >Pethaven</h1>
+    <h1 >Petfinder</h1>
     <Login changeForm={changeForm}/>
+    <p  onClick={changeForm}  className="lUser">Go back to registration</p>
     </>);
 }
 }

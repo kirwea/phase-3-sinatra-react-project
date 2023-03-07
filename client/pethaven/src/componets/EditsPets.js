@@ -1,10 +1,11 @@
 import { useStore } from "zustand";
-import { petsowners } from "../data/PetsOwners";
+//import { petsStore } from "../data/PetsKeeper";
+import { petsStore } from "../Data/PetsKeeper";
 import { useState } from "react";
 import axios from "axios";
 
 function Edit({pet}){
-const pets = useStore(petsowners)
+const pets = useStore(petsStore)
 const [displayForm,setdisplayForm] = useState(false)
 const [changePet, setchangePet] = useState({
 "name" : "",
@@ -16,13 +17,13 @@ console.log(changePet)
 const handleSubmit = (e)  =>{
 e.preventDefault()
 setdisplayForm(false)
-let other_pets = pets.petsData.filter((thispet)=>{
+let other_pets = pets.petsList.filter((thispet)=>{
  return thispet.id !== pet.id
 })
 console.log(other_pets)
 axios
-.put(`http://localhost:9292/pets/${pet.id}`,changePet)
-.then((r) => pets.setPetsOwners([...other_pets, changePet])
+.put(`https://ismahan-sinatra-backend.onrender.com/pets/${pet.id}`,changePet)
+.then((r) => pets.setPetsStore([...other_pets, changePet])
 );
 }
 if(displayForm === false){

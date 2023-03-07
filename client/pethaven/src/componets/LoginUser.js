@@ -3,14 +3,15 @@ import { useState } from "react";
 import {useEffect} from "react"
 import axios from "axios";
 import { useStore } from "zustand";
-import { petsowners } from "../Data/PetsOwners";
+//import {  petsStore } from "../data/PetsKeeper";
+import { petsStore } from "../Data/PetsKeeper";
 
 function Login() {
-  const pets = useStore(petsowners)
+  const pets = useStore(petsStore)
   const [users,setUsers] = useState([])
   console.log(users)
   useEffect(()=>{
-   axios.get("http://localhost:9292/pets").then((r) =>
+   axios.get("https://ismahan-sinatra-backend.onrender.com").then((r) =>
     setUsers(r.data)
    )
   },[])
@@ -29,9 +30,9 @@ function Login() {
     if(exixting_user.length !== 0){
     if(exixting_user[0].password === login.password){
     
-      axios.get(`https://localhost:9292/pets,'${exixting_user[0].username}`).then((r) =>{
+      axios.get(`https://ismahan-sinatra-backend.onrender.com/pets/${exixting_user[0].username}`).then((r) =>{
       if(r.data.length === 0){
-        pets.setPetsOwners([{
+        pets.setPetsStore([{
         id:null,
         name:"",
         breed:"",
@@ -40,7 +41,7 @@ function Login() {
             }]) 
             redirect("/mypets")}else{
         console.log(r.data)
-        pets.setPetsOwners(r.data) 
+        pets.setPetsStore(r.data) 
         redirect("/mypets")} 
       }    
       )
@@ -69,4 +70,4 @@ function Login() {
     </div>
   );
 }
-export default Login;
+export default Login
