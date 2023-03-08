@@ -9,7 +9,7 @@ function Register({changeForm}){
     console.log(newPetOwner)
     const handleSubmit = (e) =>{
         e.preventDefault()
-        axios.post("https://ismahan-sinatra-backend.onrender.com/user",newPetOwner)
+        axios.post("https://pets-advanced.onrender.com/user",newPetOwner)
         changeForm()
     }
     return(

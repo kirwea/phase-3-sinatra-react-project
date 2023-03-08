@@ -17,7 +17,7 @@ function AddPet({user_id}){
     e.preventDefault()
     setdisplayForm(false)
     console.log(newPet)
-    axios.post(`https://ismahan-sinatra-backend.onrender.com/pet`,newPet).then((r) =>
+    axios.post(`https://pets-advanced.onrender.com/pet`,newPet).then((r) =>
     pets.setPetsStore([...pets.petsList, r.data])
 );
     }

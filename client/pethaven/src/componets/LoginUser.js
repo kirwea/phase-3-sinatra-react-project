@@ -11,7 +11,7 @@ function Login() {
   const [users,setUsers] = useState([])
   console.log(users)
   useEffect(()=>{
-   axios.get("https://ismahan-sinatra-backend.onrender.com").then((r) =>
+   axios.get("https://pets-advanced.onrender.com").then((r) =>
     setUsers(r.data)
    )
   },[])
@@ -30,7 +30,7 @@ function Login() {
     if(exixting_user.length !== 0){
     if(exixting_user[0].password === login.password){
     
-      axios.get(`https://ismahan-sinatra-backend.onrender.com/pets/${exixting_user[0].username}`).then((r) =>{
+      axios.get(`https://pets-advanced.onrender.com/pets/${exixting_user[0].username}`).then((r) =>{
       if(r.data.length === 0){
         pets.setPetsStore([{
         id:null,

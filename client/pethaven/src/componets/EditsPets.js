@@ -22,7 +22,7 @@ let other_pets = pets.petsList.filter((thispet)=>{
 })
 console.log(other_pets)
 axios
-.put(`https://ismahan-sinatra-backend.onrender.com/pets/${pet.id}`,changePet)
+.put(`https://pets-advanced.onrender.com/pets/${pet.id}`,changePet)
 .then((r) => pets.setPetsStore([...other_pets, changePet])
 );
 }
