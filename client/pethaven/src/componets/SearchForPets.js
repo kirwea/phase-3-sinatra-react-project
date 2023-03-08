@@ -9,7 +9,7 @@ function Search(){
 const pets = useStore(petsStore)
 const handleSearch = (e) => {
     console.log(e.target.value)
-axios.post("https://pets-advanced.onrender.com/pets/search_all",{
+axios.post("https://ngunjiri-sinatra.onrender.com/pets/search_all",{
     query: e.target.value
 }).then( (r) =>
     pets.setPetsStore(r.data)

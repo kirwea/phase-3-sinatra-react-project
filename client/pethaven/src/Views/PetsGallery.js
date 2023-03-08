@@ -18,7 +18,7 @@ function AllPets() {
 
   useEffect(() => {
     // This will be the fetch to a specific user's pets
-    axios.get('https://pets-advanced.onrender.com/pets')
+    axios.get('https://ngunjiri-sinatra.onrender.com/pets')
       .then((r) => setMyPets(r.data));
   }, []);
 
